@@ -44,7 +44,8 @@ We propose an Attention-based LEarned Cardinality Estimator (ALECE~for short) ma
 - echo 'export LD_LIBRARY_PATH=/usr/local/pgsql/13.1/lib/:$LD_LIBRARY_PATH' >> ~/.bashrc
 - source ~/.bashrc
 ```
-- You need to specify the directory '$PG_DATADIR$' to put the database data and create a database whose name is the same with your account name of the Linux system. Suppose your account name is 'Tom' and your postgresql data directory is '/home/Tom/pg_data', run the following scripts.
+- You need to specify the directory '$PG_DATADIR$' to put the database data and create a database whose name is the same with your account name of the Linux system.
+  Suppose your account name is 'Tom' and your postgresql data directory is '/home/Tom/pg_data', run the following scripts.
 ```bash
 - initdb -D /home/Tom/pg_data
 - set port = 4321 in /home/Tom/pg_data/postgresql.conf
@@ -63,9 +64,9 @@ You can also conduct both replacements by running the following scripts.
 #### How to Generate Sub-Queries and Workload?
 
 ```bash
-- In data/STATS/workload/static, you will find two sql files: train_queries.sql and test_queries.sql.
-- python benchmark/sub_queries_generator.py --data STATS --wl_data_type train (for train_queries.sql) 
-- python benchmark/sub_queries_generator.py --data STATS --wl_data_type train (for test_queries.sql)
+- In data/STATS/workload/static, you will find two sql files: train_queries.sql and test_queries.sh.
+- python benchmark/sub_queries_generator.py --data STATS --wl_data_type train (for train_queries.sql)
+- python benchmark/sub_queries_generator.py --data STATS --wl_data_type train (for test_queries.sh)
 - We have provided three dynamic workloads: Insert-heavy, Update-heavy and Dist-shift. 
 - Each workload is the mix of the training (sub-)queries, testing (sub-)queries and insert/delete/update statements.
 - You can also randomly mix the training/testing (sub-)queries with data manipulation statements to build your own dynamic workload.
